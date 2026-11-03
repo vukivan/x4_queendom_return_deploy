@@ -1,27 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <diff>
-  <add sel="//cue[@name='X4ep1_Gamestart_Terran_Shared']/actions" pos="after">
-    <cues>
-      <cue name="X4Ep1_Gamestart_Terran_HQ">
-        <actions>
-          <find_sector name="$HQSector" macro="macro.cluster_114_sector001_macro"/>
-          <find_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" space="$HQSector" required="true"/>
-          <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
-            <param name="Object" value="$HQ"/>
-            <param name="RequesterCue" value="md.Setup_Gamestarts.X4Ep1_Gamestart_Terran_HQ"/>
-            <param name="DebugChance" value="$DebugChance"/>
-          </run_actions>
-          <add_to_group groupname="md.Signal_Leaks.Manager.$ExcludedObjects" object="$HQ"/>
-          <add_to_group groupname="md.GenericMissions.Manager.$ExcludedOfferObjects" object="$HQ"/>
-          <add_to_group groupname="md.NPC_Instantiation.Instantiation.$ExcludedObjects" object="$HQ"/>
-        </actions>
-      </cue>
-    </cues>
-  </add>
-  <add sel="//cue[@name='X4ep1_Gamestart_Terran1']/actions/signal_cue" pos="before">
-    <set_value name="md.X4Ep1_Mentor_Subscriptions.Start.$TerranVariant" exact="true"/>
-  </add>
-  <add sel="//cue[@name='X4ep1_Gamestart_Terran2']/actions/signal_cue" pos="before">
-    <set_value name="md.X4Ep1_Mentor_Subscriptions.Start.$TerranVariant" exact="true"/>
-  </add>
+  <remove sel="//cue[@name='X4ep1_Gamestart_Terran_Shared']/cues"/>
+  <remove sel="//cue[@name='X4ep1_Gamestart_Terran1']/actions/set_value"/>
+  <remove sel="//cue[@name='X4ep1_Gamestart_Terran2']/actions/set_value"/>
 </diff>
